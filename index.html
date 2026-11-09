@@ -237,6 +237,48 @@
     animation: fade .9s .6s var(--ease) both;
   }
 
+  /* ---------- Зачёркнутое «ремонт» и новый слоган ---------- */
+  .strike {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--muted);
+    animation: dim .6s 1.5s ease both;
+  }
+  .strike svg {
+    position: absolute;
+    top: 0;
+    left: -6px;
+    right: calc(.3em - 6px); /* не заходить на «хвост» разрядки после последней буквы */
+    width: auto;
+    height: 100%;
+    transform: rotate(-2deg);
+    overflow: visible;
+  }
+  .strike path {
+    fill: none;
+    stroke: #e4572e;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 4px rgba(228, 87, 46, .45));
+    animation: draw .7s 1.4s cubic-bezier(.6, 0, .3, 1) both;
+  }
+
+  .tagline {
+    max-width: 22em;
+    margin: 12px auto 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: clamp(1.08rem, 4.4vw, 1.22rem);
+    line-height: 1.4;
+    color: var(--kraft-100);
+    text-wrap: balance;
+    animation: fade .9s 1.9s var(--ease) both;
+  }
+
   /* ---------- Руководитель ---------- */
   .person {
     margin-top: 22px;
@@ -409,6 +451,8 @@
     70%, 100% { box-shadow: 0 10px 30px -8px rgba(212, 184, 140, .45), 0 0 0 16px rgba(212, 184, 140, 0); }
   }
   @keyframes ripple { to { transform: scale(1); opacity: 0; } }
+  @keyframes draw { from { stroke-dashoffset: 100; } }
+  @keyframes dim { from { color: var(--kraft-300); } }
 
   /* ---------- Телефон ---------- */
   @media (max-width: 480px) {
@@ -451,7 +495,8 @@
     </h1>
 
     <div class="divider" aria-hidden="true"><i></i></div>
-    <p class="role">Премиальный ремонт</p>
+    <p class="role">Премиальный <s class="strike">ремонт<svg viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M0 14 C 18 12.2, 34 14.8, 52 13 S 86 11.6, 100 12"/></svg></s></p>
+    <p class="tagline">Уют и комфорт&nbsp;— без потери вашего времени</p>
 
     <div class="person">
       <b>Александр Перепелкин</b>
