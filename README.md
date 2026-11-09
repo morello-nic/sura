@@ -1,3 +1,5 @@
 ﻿# Sura Enterprises
 
-Визитка: https://morello-nic.github.io/sura/
+Визитка: https://sura-enterprises.netlify.app/
+
+Запасной адрес (GitHub Pages): https://morello-nic.github.io/sura/
